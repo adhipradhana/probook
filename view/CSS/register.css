@@ -1,0 +1,60 @@
+body{
+	font-size: 20px;
+}
+
+table{
+	width: 100%;
+	margin-bottom: 20px;
+	margin-top : 15px;
+}
+
+tr{
+	height:10%;
+}
+
+td{
+	width: 50%;
+}
+
+h1{
+	text-align: center;
+	padding-top: 20px;
+}
+
+.background{
+	margin: 10% auto;
+	width: 25%;
+	height: 100%;
+	padding: 1px 1px 13px 1px;
+	background: #00b8e6;
+}
+.container{
+	margin : 10px 10px 10px 10px;
+	background-image: url("../asset/download.png");
+	/*background-position: center;*/
+	/*background-size: cover;*/
+}
+
+.align-right{
+	text-align: right;
+}
+.button-register{
+	width: 100%;
+	margin: auto;
+	text-align: center;
+}
+#submit{
+	letter-spacing: 5.5px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	padding: 12px 7px 12px 7px;
+	border-color: orange;
+	border-width: 2px;
+	background-color: white;
+	border-radius: 10px 10px 10px 10px;
+}
+
+#already{
+	font-size: 15px;
+	margin: 5px 10px 10px 0;
+}

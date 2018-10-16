@@ -1,0 +1,43 @@
+body{
+	font-size: 30px;
+}
+.header{
+	background-color : #498fff;
+	height: 100px;
+	color: white;
+	/*float: left;*/
+}
+.header2{
+	float: right;
+	height: 100px;
+	text-align: right;
+	vertical-align: middle;
+}
+.right-side{
+	float: right;
+}
+#pro{
+	color : orange;
+	font-size: 2em;
+	margin-top: 20px;
+}
+#book{
+	font-size: 2em;
+	margin-top: 20px;
+}
+#user{
+	text-align: right;
+	float: left;
+	height: 100px;
+	padding-top: 25px;
+	margin-right: 20px;
+}
+#logicon{
+	/*text-align: right;*/
+	background-color: red;
+	width: 200px;
+	float: right;
+	height: 75px;
+	text-align: center;
+	padding-top: 25px;
+}
