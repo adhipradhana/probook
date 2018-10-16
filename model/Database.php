@@ -10,7 +10,7 @@ class Database {
             return $conn
         }
         catch (PDOException $p) {
-            ecbo "Connection failed " . $e->getMessage();
+            echo "Connection failed " . $e->getMessage();
         }
 
     }
