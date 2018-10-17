@@ -34,10 +34,63 @@ body{
 }
 #logicon{
 	/*text-align: right;*/
-	background-color: red;
+	background-color: orange;
 	width: 200px;
 	float: right;
 	height: 75px;
 	text-align: center;
 	padding-top: 25px;
+}
+.browse{
+	background-color: blue;
+	border-right: 2px solid #ffffff;
+	float: left;
+	width: 33.7%;
+	height: 100px;
+	vertical-align: middle;
+}
+.history{
+	background-color: blue;
+	border-right: 2px solid #ffffff;
+	float: left;
+	width: 33%;
+	height: 100px;
+	vertical-align: middle;
+}
+.profile{
+	background-color: orange;
+	float: right;
+	width: 33%;
+	height: 100px;
+	vertical-align: middle;
+}
+.main-section{
+	height: 100px;
+	width: 100%;
+	color: white;
+	font-size: 2em;
+	text-align: center;
+}
+.profile-pic{
+	height: 300px;
+	background-color : #000099;
+	padding-top: 1px;
+}
+.edit-pic{
+	float: right;
+	text-align: right;
+	color : white;
+}
+.pic-border{
+	height: 125px;
+	width: 125px;
+	border-radius: 50%;
+	border : 10px solid yellow;
+	margin : 83px auto;
+	color : white;
+	padding-top: 1px;
+}
+#prof-pic{
+	vertical-align: middle;
+	height: 100px;
 }
