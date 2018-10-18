@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 16, 2018 at 11:22 AM
+-- Generation Time: Oct 18, 2018 at 06:41 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -78,7 +78,8 @@ CREATE TABLE `users` (
   `email` varchar(50) NOT NULL,
   `address` varchar(100) NOT NULL,
   `phone_num` varchar(20) NOT NULL,
-  `profile_pic` varchar(100) NOT NULL
+  `profile_pic` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -89,7 +90,8 @@ CREATE TABLE `users` (
 -- Indexes for table `books`
 --
 ALTER TABLE `books`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `title` (`title`);
 
 --
 -- Indexes for table `orders`
@@ -111,7 +113,9 @@ ALTER TABLE `reviews`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
