@@ -58,7 +58,7 @@ CREATE TABLE `orders` (
 
 CREATE TABLE `reviews` (
   `id` int(11) NOT NULL,
-  `books_id` int(11) NOT NULL,
+  `book_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `timestamps` datetime NOT NULL,
   `message` text NOT NULL,
@@ -106,7 +106,7 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `reviews`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `books_id` (`books_id`),
+  ADD KEY `book_id` (`book_id`),
   ADD KEY `user_id` (`user_id`);
 
 --
@@ -160,7 +160,7 @@ ALTER TABLE `orders`
 -- Constraints for table `reviews`
 --
 ALTER TABLE `reviews`
-  ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`books_id`) REFERENCES `books` (`id`),
+  ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`),
   ADD CONSTRAINT `reviews_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 COMMIT;
 
