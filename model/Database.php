@@ -7,10 +7,10 @@ class Database {
             $conn = new PDO($dsn, $username, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             echo "Connected successfully";
-            return $conn
+            return $conn;
         }
         catch (PDOException $p) {
-            echo "Connection failed " . $e->getMessage();
+            echo "Connection failed " . $p->getMessage();
         }
     }
 }
