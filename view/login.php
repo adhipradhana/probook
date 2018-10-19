@@ -12,19 +12,20 @@
 				<form>
 					<tr>
 						<td class="align-right">Username</td>
-						<td><input type="text" name="username"></td>
+						<td><input type="text" id="username"></td>
 					</tr>
 					<tr>
 						<td class="align-right">Password</td>
-						<td><input type="password" name="password"></td>
+						<td><input type="password" id="password"></td>
 					</tr>
 				</form>
 			</table>
 			<span id="already"><a href="#">Don't have an account?</a></span>
 			<div class="button-register">
-				<button type="button" id="submit">LOGIN</button>
+				<button type="button" id="submit" onclick="logIn()">LOGIN</button>
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="login.js"></script>
 </body>
 </html>
