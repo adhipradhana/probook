@@ -6,11 +6,11 @@ class Database {
             $dsn = "mysql:host=$servername;dbname=$dbname";
             $conn = new PDO($dsn, $username, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connected successfully";
+            // echo "Connected successfully";
             return $conn;
         }
         catch (PDOException $p) {
-            echo "Connection failed " . $p->getMessage();
+            // echo "Connection failed " . $p->getMessage();
         }
     }
 }
