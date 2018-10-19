@@ -10,9 +10,17 @@ function logIn() {
 
 	var xhttp = new XMLHttpRequest();
 
-	xhttp.open("POST", "../controller/login.php", false);
+	xhttp.open("POST", "../controller/login.php", true);
 	xhttp.setRequestHeader("Content-type", "application/json");
 	xhttp.send(requestBody);
 
-	console.log(xhttp.responseText);
+	xhttp.onreadystatechange = function() {
+		if (this.readyState === 4) {
+			if (status === 200) {
+				alert("OK");
+			} else {
+				alert("NOT OK");
+			}
+		}
+	}
 }
