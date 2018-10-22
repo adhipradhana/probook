@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Profile</title>
-	<link rel="stylesheet" type="text/css" href="CSS/profile.css">
+	<link rel="stylesheet" type="text/css" href="css/profile.css">
 	<link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
 </head>
 <body>
