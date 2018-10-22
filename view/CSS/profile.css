@@ -1,22 +1,39 @@
+html,body {
+    margin:0;
+    padding:0;
+    overflow-x: hidden; 
+}
 body{
 	font-size: 30px;
-	width: 99%;
+	width: 100%;
 	height: 100%;
+	padding: 0;
 	/*padding-top: 1px;*/
 	font-family: 'Karla', sans-serif;
 }
+.headerbar{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 110px;
+}
 .header{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 110px;
 	background-color : rgb(21,156,234);
-	height: 100px;
 	color: white;
+	display: flex;
+	align-items: center;
 	/*padding-top: 1px;*/
 	/*float: left;*/
 }
 .header2{
-	float: right;
-	height: 100px;
-	text-align: right;
-	vertical-align: middle;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	/*text-align: right;*/
 }
 .right-side{
 	float: right;
@@ -24,49 +41,45 @@ body{
 #pro{
 	color : rgb(238,211,9);
 	font-size: 2em;
-	margin-left: 50px;
-	padding-top: 15px;
-	height: 100px;
+	margin-left: 3vw;
 }
 #book{
 	font-size: 2em;
-	height: 100px;
-	padding-top: 15px;
-
+	margin-right: auto;
 }
 #user{
-	text-align: right;
-	float: left;
-	height: 100px;
-	padding-top: 25px;
-	margin-right: 20px;
+	margin-right: 1vw;
+	text-decoration: underline;
 }
 #logicon{
 	/*text-align: right;*/
 	background-color: rgb(235,79,8);
-	width: 200px;
+	background-size: cover;
 	float: right;
-	height: 75px;
-	text-align: center;
-	padding-top: 25px;
+	width: 7ch;
+	height: inherit;
+	display: inline-block;
+	vertical-align: middle;
 }
 .browse{
 	background-color: rgb(16,129,192);
 	border-right: 2px solid #ffffff;
 	float: left;
 	width: 33.7%;
-	height: 100px;
+	height: 120px;
 	padding-top: 20px;
 	color: white;
 	text-transform: uppercase;
 	font-size : 50px;
+	display: inline-block;
+	text-align: center;
 }
 .history{
 	background-color: rgb(16,129,192);
 	border-right: 2px solid #ffffff;
 	float: left;
 	width: 33%;
-	height: 100px;
+	height: 120px;
 	padding-top: 20px;
 	color: white;
 	text-transform: uppercase;
@@ -76,25 +89,30 @@ body{
 	background-color: rgb(235,79,8);
 	float: right;
 	width: 33%;
-	height: 100px;
+	height: 120px;
 	padding-top: 20px;
 	color: white;
 	text-transform: uppercase;
 	font-size : 50px;
 }
 .main-section{
+	background-color: rgb(3,41,59);
 	height: 100px;
 	width: 100%;
 	color: white;
 	font-size: 2em;
 	text-align: center;
+	display: inline-block;
+	padding-top: 100px
+	/*align-items: horizontal;*/
 }
 .profile-pic{
-	height: 400px;
+	height: 450px;
 	background-color : rgb(3,41,59);
 	/*margin: 0 auto;*/
-	padding-top: 1px;
-	/*width: 99%;*/
+	margin-top: -10px;
+	padding-top: 50px;
+	width: 100%;
 }
 .edit-pic{
 	margin: 25px 25px 0 0;
