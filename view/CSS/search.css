@@ -106,67 +106,42 @@ body{
 	padding-top: 100px;
 	align-items: horizontal;
 }
-.profile-pic{
-	height: 450px;
-	background-color : rgb(3,41,59);
-	margin: 0 auto;
-	margin-top: -10px;
-	padding-top: 50px;
-	width: 100%;
-}
-.edit-pic{
-	margin: 25px 25px 0 0;
-	float: right;
-	text-align: right;
-	color : white;
-}
-.pic-border{
-	height: 200px;
-	width: 200px;
-	border-radius: 50%;
-	border : 10px solid yellow;
-	margin : 65px auto 5px auto;
-	color : white;
-	padding: 1px 1px 1px 1px;
-	background-image : url("../asset/tayo.png");
-	background-position: center;
-	background-size: cover;
-}
-.name{
-	padding: 1px 1px 1px 1px;
-	margin : 0 auto;
-	color: white;
-	font-weight: 500;
-	font-size: 3em;
-	text-align: center;
-}
-#my-profile{
-	color : rgb(235,79,8);
-	margin-top: 20px;
-	margin-left: 50px;
-	font-size: 2em;
-}
-.user-profile{
-	width: 100%;
-	margin-top: 50px;
-	padding-top: 1px;
-}
-.width-35{
-	width: 35%;
-	height: 100px;
-
-}
-.width-65{
-	width: 65%;
-	height: 100px;
-
-}
-.table-profile{
-	margin: 35px 0 0 110px;
-	padding-top: 1px;
-	width: 100%;
-}
 .font2em{
 	font-size: 2em;
 	padding-bottom: 5px;
+}
+.container{
+	margin-top: 80px;
+	width: 100%;
+}
+#search-book{
+	font-size : 4em;
+	color : rgb(235,79,8);
+	margin-left: 80px;
+}
+#search-box{
+	margin-top: 30px;
+	margin-left: 80px;
+	margin-right: 80px;
+	width: 88%;
+	padding: 10px 0 10px 0;
+	border-radius: 6px;
+	border : 1.5px solid grey;
+	font-size: 30px;
+}
+
+#search-box::placeholder{
+	padding-left: 20px;
+}
+
+#submit{
+	float:right;
+	margin-top: 20px;
+	margin-right: 100px;
+	padding : 5px 50px 5px 50px;
+	font-size: 30px;
+	border-radius : 5px;
+	border : 0px;
+	color : white;
+	background-color: rgb(21,156,234);
 }
