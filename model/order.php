@@ -20,6 +20,24 @@ class Order {
          }
     }
 
+    public static function getOrderByUser($user_id) {
+        try {
+            $conn = Database::establishConnection();
+            if ($conn != NULL) {
+                $stmt = $conn -> prepare('SELECT * FROM orders WHERE user_id = ?');
+                $stmt -> execute($user_id);
+                $orders = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+
+                $stmt = NULL;
+                $order = NULL;
+            }
+
+            return $orders;
+        } catch (PDOException $p) {
+            return NULL;
+        }
+    }
+
     public static function createOrder($data) {
         try {
             $conn = Database::establishConnection();
