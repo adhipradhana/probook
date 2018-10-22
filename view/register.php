@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Register</title>
-	<link rel="stylesheet" type="text/css" href="CSS/register.css">
+	<link rel="stylesheet" type="text/css" href="css/register.css">
 	<link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
 </head>
 <body>
@@ -33,7 +33,7 @@
 					</tr>
 					<tr>
 						<td class="align-right">Address</td>
-						<td><textarea id="address" row="2"></textarea></td>
+						<td><textarea id="address" rows="2"></textarea></td>
 					</tr>
 					<tr>
 						<td class="align-right">Phone Number</td>
