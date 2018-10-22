@@ -37,7 +37,7 @@
 					</tr>
 					<tr>
 						<td class="align-right">Phone Number</td>
-						<td><input type="text" id="phone_number"></td>
+						<td><input type="text" id="phone_number" onkeyup="validatePhoneNumber()"></td>
 					</tr>
 				</form>
 			</table>

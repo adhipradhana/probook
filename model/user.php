@@ -12,14 +12,60 @@ class User  {
 	            $stmt -> execute([$username, $password]);
 	            $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-	            $stmt = null;
-	            $conn = null;
+	            $stmt = NULL;
+	            $conn = NULL;
 	        }
 
         	return $user;
 	     } catch (PDOException $e) {
 	     	return NULL;
 	     }
+    }
+
+    public static function isEmailExist($email) {
+    	try {
+    		$conn = Database::establishConnection();
+    		if ($conn != NULL) {
+    			$stmt = $conn -> prepare('SELECT id FROM users WHERE email = ?');
+    			$stmt -> execute([$email]);
+
+    			if ($stmt->rowCount() > 0) {
+    				$stmt = NULL;
+    				$conn = NULL;
+
+    				return TRUE;
+    			}
+    			$stmt = NULL;
+				$conn = NULL;
+
+				return FALSE;
+    		}
+    	} catch (PDOException $e) {
+    		return FALSE;
+    	}
+    }
+
+    public static function isUsernameExist($username) {
+    	try {
+    		$conn = Database::establishConnection();
+    		if ($conn != NULL) {
+    			$stmt = $conn -> prepare('SELECT id FROM users WHERE username = ?');
+    			$stmt -> execute([$username]);
+
+    			if ($stmt->rowCount() > 0) {
+    				$stmt = NULL;
+    				$conn = NULL;
+
+    				return TRUE;
+    			}
+    			$stmt = NULL;
+				$conn = NULL;
+
+				return FALSE;
+    		}
+    	} catch (PDOException $e) {
+    		return FALSE;
+    	}
     }
 
     public static function createUser($data) {
@@ -33,8 +79,8 @@ class User  {
 		        $stmt -> execute();
 		        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-		        $stmt = null;
-	            $conn = null;
+		        $stmt = NULL;
+	            $conn = NULL;
 		    }
 
     		return $user;
@@ -51,8 +97,8 @@ class User  {
 		        $stmt -> execute([$data["name"], $data["password"], $data["email"], 
 		        	$data["address"], $data["phone_num"], $data["profile_pic"], $data["id"]]);
 
-		        $stmt = null;
-	            $conn = null;
+		        $stmt = NULL;
+	            $conn = NULL;
 
 	            return TRUE;
     		}
@@ -70,8 +116,8 @@ class User  {
     			$stmt = $conn -> prepare('DELETE FROM users WHERE id = ?');
 		        $stmt -> execute([$id]);
 
-		        $stmt = null;
-	            $conn = null;
+		        $stmt = NULL;
+	            $conn = NULL;
 
 	            return TRUE;
     		}
