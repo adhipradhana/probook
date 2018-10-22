@@ -16,8 +16,9 @@ function logIn() {
 
 	xhttp.onreadystatechange = function() {
 		if (this.readyState === 4) {
-			if (status === 200) {
+			if (this.status === 200) {
 				alert("OK");
+				console.log(this.responseText);
 			} else {
 				alert("NOT OK");
 			}
