@@ -14,19 +14,26 @@ function register(){
 		confirm_password : confirm_password,
 		email : email,
 		address : address,
-		phone_number : phone_number
+		phone_num : phone_number
 	};
-
-
 
 	var requestBody = JSON.stringify(body);
 	var xhttp = new XMLHttpRequest();
 
-	xhttp.open("POST","../controller/register.php",false);
+	xhttp.open("POST","../controller/register.php", true);
 	xhttp.setRequestHeader("Content-type", "application/json");
 	xhttp.send(requestBody);
 
-	console.log(xhttp.responseText);
+	xhttp.onreadystatechange = function() {
+		if (this.readyState === 4) {
+			if (this.status === 200) {
+				alert("OK");
+				console.log(this.responseText);
+			} else {
+				alert("NOT OK");
+			}
+		}
+	}
 }
 
 function validatePassword(){

@@ -1,16 +1,24 @@
 <?php  
 
 class Database {
-    function establishConnection($servername, $dbname, $username, $password) {
+    const servername = "127.0.0.1";
+    const dbname = "probook";
+    const username = "root";
+    const password = "";
+
+    public function establishConnection() {
         try {
+            $servername = constant("self::servername");
+            $dbname = constant("self::dbname");
+
             $dsn = "mysql:host=$servername;dbname=$dbname";
-            $conn = new PDO($dsn, $username, $password);
+            $conn = new PDO($dsn, constant("self::username"), constant("self::password"));
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // echo "Connected successfully";
             return $conn;
         }
         catch (PDOException $p) {
-            // echo "Connection failed " . $p->getMessage();
+            return NULL;
         }
     }
 }
