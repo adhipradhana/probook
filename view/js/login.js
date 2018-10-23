@@ -19,7 +19,7 @@ function logIn() {
 			if (this.status === 200) {
 				var cookie = document.cookie;
 
-				alert(cookie);
+				alert("Welcome");
 			} else {
 				alert("User not found");
 			}

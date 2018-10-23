@@ -24,6 +24,26 @@ class User  {
 	     }
     }
 
+    public static function getUserById($id) {
+        try {
+            $conn = Database::establishConnection();
+            if ($conn != NULL) {
+                $stmt = $conn -> prepare('SELECT * FROM users WHERE id = ?');
+                $stmt -> execute([$id]);
+                $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                unset($user["password"]);
+
+                $stmt = NULL;
+                $conn = NULL;
+            }
+
+            return $user;
+         } catch (PDOException $e) {
+            return NULL;
+         }
+    }
+
     public static function isEmailExist($email) {
     	try {
     		$conn = Database::establishConnection();
