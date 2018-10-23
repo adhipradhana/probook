@@ -17,9 +17,7 @@ function logIn() {
 	xhttp.onreadystatechange = function() {
 		if (this.readyState === 4) {
 			if (this.status === 200) {
-				var cookie = document.cookie;
-
-				alert("Welcome");
+				window.location.href = "http://localhost:8080/view/profile.php";
 			} else {
 				alert("User not found");
 			}

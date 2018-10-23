@@ -196,6 +196,7 @@ tr{
 	margin : 50px 117px 0px 0px;
 	padding: 5px 67px 5px 67px;
 	border-radius : 10px;
+	cursor: pointer;
 }
 #back-button{
 	border: 2px solid rgb(235,79,8);
@@ -205,4 +206,5 @@ tr{
 	margin: 50px 0px 0px 61px;
 	padding: 5px 67px 5px 67px;
 	border-radius: 10px;
+	cursor: pointer;
 }

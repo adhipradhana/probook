@@ -41,7 +41,7 @@
 		</table>
 	</div>
 	<div class="button-container">
-		<button id="back-button">Back</button>
+		<a href="http://localhost:8080/view/profile.php"><button id="back-button">Back</button></a>
 		<button id="save-button" onclick="saveChange()">Save</button>
 	</div>
 	<script type="text/javascript" src="js/edit_profile.js"></script>
