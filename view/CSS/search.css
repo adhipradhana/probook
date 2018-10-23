@@ -104,7 +104,6 @@ body{
 	text-align: center;
 	display: inline-block;
 	padding-top: 100px;
-	align-items: horizontal;
 }
 .font2em{
 	font-size: 2em;
@@ -124,14 +123,10 @@ body{
 	margin-left: 80px;
 	margin-right: 80px;
 	width: 88%;
-	padding: 10px 0 10px 0;
+	padding: 10px 0 10px 20px;
 	border-radius: 6px;
 	border : 1.5px solid grey;
 	font-size: 30px;
-}
-
-#search-box::placeholder{
-	padding-left: 20px;
 }
 
 #submit{

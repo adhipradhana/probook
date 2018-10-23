@@ -2,7 +2,8 @@
 <html>
 <head>
 	<title>Search</title>
-	<link rel="stylesheet" type="text/css" href="CSS/search.css">
+	<link rel="stylesheet" type="text/css" href="css/search.css">
+	<link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
 </head>
 <body>
 	<div class="header">
