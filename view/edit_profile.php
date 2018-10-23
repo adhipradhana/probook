@@ -1,3 +1,10 @@
+<?php
+	if (!isset($_COOKIE["id"])) {
+		header("Location: http://localhost:8080/view/login.php");
+		exit();
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,6 +49,7 @@
 	</div>
 	<div class="button-container">
 		<button id="back-button">Back</button>
-		<button id="save-button">Save</button>
+		<button id="save-button" onclick="saveChange()">Save</button>
 	</div>
+	<script type="text/javascript" src="js/edit_profile.js"></script>
 </body>
