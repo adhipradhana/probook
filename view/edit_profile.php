@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="css/edit_profile.css">
 	<link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
 </head>
-<body>
+<body onload="loadUserData()">
 	<div class="header">
 		<span id="pro">Pro-</span><span id="book">Book</span> 
 		<span class="header2"> 
@@ -36,12 +36,13 @@
 			</tr>
 			<tr>
 				<td class="width-200">Phone Number</td>
-				<td class="width-81"><input type="text" id="phone_number"></td>
+				<td class="width-81"><input type="text" id="phone_number" onkeyup="validatePhoneNumber()"></td>
 			</tr>
 		</table>
 	</div>
 	<div class="button-container">
 		<button id="back-button">Back</button>
-		<button id="save-button">Save</button>
+		<button id="save-button" onclick="saveChange()">Save</button>
 	</div>
+	<script type="text/javascript" src="js/edit_profile.js"></script>
 </body>

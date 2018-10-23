@@ -12,6 +12,8 @@ class User  {
 	            $stmt -> execute([$username, $password]);
 	            $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+                unset($user["password"]);
+
 	            $stmt = NULL;
 	            $conn = NULL;
 	        }
@@ -20,6 +22,26 @@ class User  {
 	     } catch (PDOException $e) {
 	     	return NULL;
 	     }
+    }
+
+    public static function getUserById($id) {
+        try {
+            $conn = Database::establishConnection();
+            if ($conn != NULL) {
+                $stmt = $conn -> prepare('SELECT * FROM users WHERE id = ?');
+                $stmt -> execute([$id]);
+                $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                unset($user["password"]);
+
+                $stmt = NULL;
+                $conn = NULL;
+            }
+
+            return $user;
+         } catch (PDOException $e) {
+            return NULL;
+         }
     }
 
     public static function isEmailExist($email) {
@@ -72,8 +94,8 @@ class User  {
     	try {
 	    	$conn = Database::establishConnection();
 	    	if ($conn != NULL) {
-				$stmt = $conn -> prepare('INSERT INTO users(name, username, password, email, address, phone_num, profile_pic) VALUES(?,?,?,?,?,?,?)');
-		        $stmt -> execute([$data["name"], $data["username"], $data["password"], $data["email"], $data["address"], $data["phone_num"], 'a.com']);
+				$stmt = $conn -> prepare('INSERT INTO users(name, username, password, email, address, phone_num) VALUES(?,?,?,?,?,?)');
+		        $stmt -> execute([$data["name"], $data["username"], $data["password"], $data["email"], $data["address"], $data["phone_num"]]);
 		        
 		        $stmt = $conn -> prepare('SELECT * FROM users WHERE id = LAST_INSERT_ID()');
 		        $stmt -> execute();
@@ -93,9 +115,28 @@ class User  {
     	try {
     		$conn = Database::establishConnection();
     		if ($conn != NULL) {
-    			$stmt = $conn -> prepare('UPDATE users SET name = ?, password = ?, email = ?, address = ?, phone_num = ?, profile_pic = ? WHERE id = ?');
-		        $stmt -> execute([$data["name"], $data["password"], $data["email"], 
-		        	$data["address"], $data["phone_num"], $data["profile_pic"], $data["id"]]);
+                $stmt = $conn -> prepare('SELECT name, address, phone_num, profile_pic FROM users WHERE id = ?');
+                $stmt -> execute([$data["id"]]);
+                $user = $stmt -> fetch(PDO::FETCH_ASSOC);
+
+                if (!isset($data["name"])) {
+                    $data["name"] = $user["name"];
+                }
+
+                if (!isset($data["address"])) {
+                    $data["address"] = $user["address"];
+                }
+
+                if (!isset($data["phone_num"])) {
+                    $data["phone_num"] = $user["phone_num"];
+                }
+
+                if (!isset($data["profile_pic"])) {
+                    $data["profile_pic"] = $user["profile_pic"];
+                }
+
+    			$stmt = $conn -> prepare('UPDATE users SET name = ?, address = ?, phone_num = ?, profile_pic = ? WHERE id = ?');
+		        $stmt -> execute([$data["name"], $data["address"], $data["phone_num"], $data["profile_pic"], $data["id"]]);
 
 		        $stmt = NULL;
 	            $conn = NULL;
