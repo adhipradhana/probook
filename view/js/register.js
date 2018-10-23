@@ -15,7 +15,8 @@ function register(){
 				password : password,
 				email : email,
 				address : address,
-				phone_num : phoneNumber
+				phone_num : phoneNumber,
+				profile_pic : "/view/asset/default.jpg"
 			};
 
 			var requestBody = JSON.stringify(body);
