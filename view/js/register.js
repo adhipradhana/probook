@@ -59,7 +59,7 @@ function checkDataValid(username, email, password, confirmPassword, phoneNumber,
 }
 
 function isPhoneNumberValid(phoneNumber) {
-	return phoneNumber.length >= 10;
+	return phoneNumber.length >= 9 && phoneNumber.length <= 12;
 }
 
 function validatePhoneNumber(){
@@ -152,7 +152,7 @@ function validateEmail(){
 function isUsernameValid(username) {
 	var re = /^[a-zA-Z0-9_]*$/;
 
-	return re.test(username) && username.length >= 4;
+	return re.test(username) && username.length <= 20;
 } 
 
 function checkUsernameExist(username, callback) {

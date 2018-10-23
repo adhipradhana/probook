@@ -11,7 +11,7 @@ $user = User::getUserLogin($input['username'], $input['password']);
 if (empty($user)) {
 	http_response_code(401);
 } else {
-	setcookie("id", $user["id"], time() + 3600, "/");
+	setcookie("id", $user["id"], time() + 86400, "/");
 
 	header("application/json");
 	http_response_code(200);
