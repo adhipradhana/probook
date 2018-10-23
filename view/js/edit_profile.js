@@ -20,7 +20,9 @@ function loadUserData() {
 				var name = document.getElementById("name");
 				var address = document.getElementById("address");
 				var phoneNumber = document.getElementById("phone_number");
+				var username = document.getElementById("user");
 
+				username.textContent = 'Hi, ' + response["username"];
 				name.value = response["name"];
 				address.value = response["address"];
 				phoneNumber.value = response["phone_num"];
