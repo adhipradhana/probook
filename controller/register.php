@@ -8,7 +8,7 @@ $input = json_decode($inputJSON, TRUE);
 
 $user = User::createUser($input);
 
-if (is_null($user)) {
+if (empty($user)) {
 	http_response_code(401);
 } else {
 	header("application/json");

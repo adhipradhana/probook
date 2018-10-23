@@ -17,10 +17,11 @@ function logIn() {
 	xhttp.onreadystatechange = function() {
 		if (this.readyState === 4) {
 			if (this.status === 200) {
-				alert("OK");
-				console.log(this.responseText);
+				var cookie = document.cookie;
+
+				alert(cookie);
 			} else {
-				alert("NOT OK");
+				alert("User not found");
 			}
 		}
 	}
