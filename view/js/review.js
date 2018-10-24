@@ -1,4 +1,3 @@
-
 var star = document.querySelectorAll(".img-star");
 var rating;
 var bookID = getParameterByName("bookid");

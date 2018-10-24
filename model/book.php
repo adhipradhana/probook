@@ -27,8 +27,9 @@ class Book {
             $conn = Database::establishConnection();
 
             if ($conn != NULL) {
-                $statement = $conn->prepare('SELECT * FROM books WHERE LOWER(books.title) LIKE \'%?%\'');
-                $statement->execute([$id]);
+                $query = 'SELECT * FROM books WHERE LOWER(books.title) LIKE \'' . '%' . $title . '%\'';
+                $statement = $conn->prepare($query);
+                $statement->execute();
                 $books = $statement->fetchAll(PDO::FETCH_ASSOC);
 
                 $conn = NULL;
