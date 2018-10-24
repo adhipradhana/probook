@@ -22,6 +22,38 @@ class Review {
 	     }
     }
 
+    public static function checkReview($data){
+    	try {
+    		$conn = Database::establishConnection();
+    		if ($conn != NULL) {
+    			$stmt = $conn -> prepare('SELECT id FROM orders WHERE book_id = ? AND user_id = ?');
+    			$stmt -> execute([$data["book_id"], $data["user_id"]]);
+
+    			if ($stmt->rowCount() > 0) {
+    				$stmt = NULL;
+    				// $conn = NULL;
+    				$stmt2 = $conn -> prepare('SELECT id FROM reviews WHERE book_id = ? AND user_id = ?');
+    				$stmt2 -> execute([$data["book_id"], $data["user_id"]]);
+    				if($stmt2->rowCount() === 0){
+    					$stmt2 = NULL;
+    					$conn = NULL;
+    					return TRUE;
+    				} else{
+    					$stmt2 = NULL;
+    					$conn = NULL;
+    					return FALSE;
+    				}
+    			}
+    			$stmt = NULL;
+				$conn = NULL;
+
+				return FALSE;
+    		}
+    	} catch (PDOException $e) {
+    		return FALSE;	
+    	}
+    }
+
     public static function createReview($data) {
     	try {
 	    	$conn = Database::establishConnection();
@@ -29,7 +61,7 @@ class Review {
 	    		$date = new DateTime();
 				$date->format('Y-m-d H:i:s');
 				$stmt = $conn -> prepare('INSERT INTO reviews(books_id, user_id, message, rating, timestamps) VALUES(?,?,?,?,?)');
-		        $stmt -> execute([$data["books_id"], $data["user_id"], $data["message"], $data["rating"], $date);
+		        $stmt -> execute([$data["books_id"], $data["user_id"], $data["message"], $data["rating"], $date]);
 		        
 		        $stmt = $conn -> prepare('SELECT * FROM reviews WHERE id = LAST_INSERT_ID()');
 		        $stmt -> execute();
@@ -53,7 +85,7 @@ class Review {
 				$date->format('Y-m-d H:i:s');
     			$stmt = $conn -> prepare('UPDATE reviews SET books_id = ?, user_id = ?, message = ?, rating = ?, timestamps = ? WHERE id = ?');
 		        $stmt -> execute([$data["books_id"], $data["user_id"], $data["message"], 
-		        	$data["rating"], $date);
+		        	$data["rating"], $date]);
 
 		        $stmt = NULL;
 	            $conn = NULL;

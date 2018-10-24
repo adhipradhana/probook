@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="css/review.css">
 	<link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
 </head>
-<body onload="initialLoad()">
+<body onload="loadUserData()">
 	<div class="header">
 		<span id="pro">Pro-</span><span id="book">Book</span> 
 		<span class="header2"> 
@@ -40,8 +40,8 @@
 			<textarea rows="5"></textarea>
 		</div>
 	</div>
-	<button type="submit" id="back">Back</button>
-	<button type="submit" id="submit">Submit</button>
+	<a href="http://localhost:8080/view/history.php"><button type="submit" id="back">Back</button></a>
+	<button type="submit" id="submit" onclick="makeReview()">Submit</button>
 
 	<script type="text/javascript" src="js/review.js"></script>
 </body>
