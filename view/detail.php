@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/view/css/detail.css">
     <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
 </head>
-<body>
+<body onload="loadDetailData()">
     <div class="header">
         <span id="pro">Pro-</span><span id="book">Book</span> 
         <span class="header2"> 
@@ -55,7 +55,7 @@
                     <option value=10>10</option>
                 </select> 
             </div>
-            <button type='button' id='order-submit'>Order</button> 
+            <button type='button' id='order-submit' onclick="processOrder()">Order</button> 
         </div>
         <div class="book-reviews">
             <h2>Reviews</h2>
@@ -83,5 +83,6 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="js/detail.js"></script>
 </body>
 </html>

@@ -28,6 +28,7 @@ function loadUserData() {
 				phoneNumber.value = response["phone_num"];
 				profilePicture.style.background = 'url(\"' + response["profile_pic"] + '\")';
 				profilePicture.style.backgroundSize = "cover";
+				profilePicture.style.backgroundPosition = "center";
 			} else {
 				window.location.href = "/view/login.php";
 			}
@@ -86,6 +87,7 @@ function saveChange() {
 	var name = document.getElementById("name").value;
 	var address = document.getElementById("address").value;
 	var phoneNumber = document.getElementById("phone_number").value;
+	var newProfilePicture = document.getElementById("input-update").value;
 
 	var imageURL = getImageURL(profilePicture);
 
@@ -94,8 +96,13 @@ function saveChange() {
 			name : name,
 			address : address,
 			phone_num : phoneNumber,
-			profile_pic : imageURL
 		};
+
+		if (newProfilePicture.length > 0) {
+			body["profile_pic"] = newProfilePicture;
+		} else {
+			body["profile_pic"] = imageURL;
+		}
 
 		var requestBody = JSON.stringify(body);
 		var xhttp = new XMLHttpRequest();
