@@ -40,6 +40,24 @@ class Order {
         }
     }
 
+    public static function getHistoryByUser($user_id) {
+        try {
+            $conn = Database::establishConnection();
+            if ($conn != NULL) {
+                $stmt = $conn -> prepare('SELECT books.id as book_id, books.title, books.pic, orders.quantity, orders.timestamp, orders.id AS order_id, (CASE WHEN reviews.id IS NULL THEN 0 ELSE 1 END) AS is_reviewed FROM (orders LEFT JOIN reviews ON orders.user_id = reviews.user_id AND orders.book_id = reviews.book_id) JOIN books ON books.id = orders.book_id WHERE orders.user_id = ?');
+                $stmt -> execute([$user_id]);
+                $history = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+
+                $stmt = NULL;
+                $conn = NULL;
+            }
+
+            return $history;
+        } catch (PDOException $p) {
+            return NULL;
+        }
+    }
+
     public static function createOrder($data) {
         try {
             $conn = Database::establishConnection();

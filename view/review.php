@@ -13,9 +13,9 @@
 		</span>
 	</div>
 	<div class="main-section">
-		<a href="http://localhost:8080/view/search.php"><div class="browse"><strong class="font2em">B</strong>rowse</div></a>
+		<a href="/view/search.php"><div class="browse"><strong class="font2em">B</strong>rowse</div></a>
 		<a href="#"><div class="history"><strong class="font2em">H</strong>istory</div></a> 
-		<a href="http://localhost:8080/view/profile.php"><div class="profile"><strong class="font2em">P</strong>rofile</div></a>
+		<a href="/view/profile.php"><div class="profile"><strong class="font2em">P</strong>rofile</div></a>
 	</div>
 	<div class="book-section">
 		<div class="title-book">
@@ -40,7 +40,7 @@
 			<textarea rows="5" id="user-comment"></textarea>
 		</div>
 	</div>
-	<a href="http://localhost:8080/view/history.php"><button type="submit" id="back">Back</button></a>
+	<a href="/view/history.php"><button type="submit" id="back">Back</button></a>
 	<button type="submit" id="submit" onclick="makeReview()">Submit</button>
 
 	<script type="text/javascript" src="/view/js/review.js"></script>

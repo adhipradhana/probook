@@ -6,7 +6,7 @@ function loadUserData() {
 	var id = getCookie("id");
 
 	if (!id) {
-		window.location.href = "http://localhost:8080/view/login.php";
+		window.location.href = "/view/login.php";
 	}
 
 	xhttp = new XMLHttpRequest();
@@ -24,7 +24,7 @@ function loadUserData() {
 				
 				user.textContent = 'Hi, ' + response["username"];
 			} else {
-				window.location.href = "http://localhost:8080/view/login.php";
+				window.location.href = "/view/login.php";
 			}
 		}
 	}
@@ -57,7 +57,7 @@ function loadBookData(book_id){
 				bookPic.style.backgroundPosition = "center";
 			} else {
 				// alert("there is no book with id "+ result["id"]);
-				window.location.href = "http://localhost:8080/view/history.php";
+				window.location.href = "/view/history.php";
 				// alert("CAN'T TAKE BOOK DATA");
 			}
 		}
@@ -84,30 +84,33 @@ function makeReview(){
 
 	checkValid(bookID, userID, function(valid){
 		if(valid){
-			var body = {
-				book_id : bookID,
-				message : comment,
-				rating : rating
-			};
-			// console.log(body);
-			var requestBody = JSON.stringify(body);
-			var xhttp = new XMLHttpRequest();
+			validateRating(rating, function(valid){
+				if(valid){
+					var body = {
+						book_id : bookID,
+						message : comment,
+						rating : rating
+					};
+					var requestBody = JSON.stringify(body);
+					var xhttp = new XMLHttpRequest();
 
-			xhttp.open("POST","../controller/review.php", true);
-			xhttp.setRequestHeader("Content-type", "application/json");
-			xhttp.send(requestBody);
+					xhttp.open("POST","../controller/review.php", true);
+					xhttp.setRequestHeader("Content-type", "application/json");
+					xhttp.send(requestBody);
 
-			xhttp.onreadystatechange = function(){
-				if(this.readyState === 4){
-					console.log(this.responseText);
-
-					if(this.status === 200){
-						alert("berhasil");
-					} else{
-						alert("NOT OK");
+					xhttp.onreadystatechange = function(){
+						if(this.readyState === 4){
+							if(this.status === 200){
+								alert("berhasil");
+							} else{
+								alert("NOT OK");
+							}
+						}
 					}
+				}else{
+					alert("NOT OK");
 				}
-			}
+			});
 		} else{
 			alert("NOT VALID");
 		}
@@ -164,6 +167,10 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
-function validateRating(rating){
-
+function validateRating(rating, callback){
+	if(rating == null){
+		callback(false);
+	}else{
+		callback(true);
+	}
 }
