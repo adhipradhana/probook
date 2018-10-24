@@ -29,6 +29,11 @@ h3 {
     margin-bottom: 0;
 }
 
+h4 {
+    margin: 0;
+    font-size: 0.75em;
+}
+
 p {
     margin-left: 7px;
 }
@@ -256,6 +261,65 @@ p {
     display: inline-block;
     text-align: center;
     margin-top: 10px;
+}
+
+#notification-background {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+.notification {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 260px;
+    width: 700px;
+    font-size: 50px;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    background-color: rgb(255,255,255);
+    border-radius: 5px;
+    border: 2px solid black;
+    display: block;
+}
+
+.exit-image {
+    float: right;
+    height: 32px;
+    width: 32px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.check-image {
+    height: 100px;
+    width: 100px;
+}
+
+.notif-detail {
+    display: flex;
+    position: absolute;
+    top: 25%;
+    align-items: center;
+    margin: 20px;
+}
+
+.notif-text {
+    padding-left: 20px;
+}
+
+#notif-no {
+    margin: 0;
+    font-size: 1em;
+    font-weight: lighter;
 }
 
 

@@ -83,6 +83,18 @@
             </div>
         </div>
     </div>
+    <div id="notification-background">
+        <div class='notification'>
+            <img class='exit-image' src='/view/asset/exit.png' onclick="closeNotification()">
+            <div class='notif-detail'>
+                <img class='check-image' src='/view/asset/check.png'>
+                <div class='notif-text'>
+                    <h4>Pemesanan Berhasil!</>
+                    <p id='notif-no'>Nomor Transaksi : 3</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <script type="text/javascript" src="js/detail.js"></script>
 </body>
 </html>

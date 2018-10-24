@@ -37,6 +37,51 @@ function loadDetailData() {
     }
 }
 
+function processOrder() {
+    var user_id = getCookie("id");
+
+    if (!user_id) {
+        window.location.href = "/view/login.php";
+    }
+
+    var book_id = getUrlParam('id', null);
+    if (!book_id) {
+        //Param nya ga bener
+    }
+
+    var quantity = document.getElementById('order-quantity').value;
+    var body = {
+        'book_id' : book_id,
+        'quantity' : quantity
+    };
+
+    var requestBody = JSON.stringify(body);
+    var xhttp = new XMLHttpRequest();
+    
+    xhttp.open("POST", "/controller/create_order.php", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(requestBody);
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState === 4) {
+            if (this.status === 200) {
+                triggerNotification(JSON.parse(this.responseText)["id"]);
+            } else {
+                alert("NOT OK");
+            }
+        }
+    }
+}
+
+function triggerNotification(id) {
+    document.getElementById('notif-no').textContent = 'Nomor Transaksi : ' + id;
+    document.getElementById('notification-background').style.display = "block";
+}
+
+function closeNotification() {
+    document.getElementById('notification-background').style.display = "none";
+}
+
 function changeRating(avg_rating) {
     var book_rating = document.getElementById("book-ratings-num");
 
