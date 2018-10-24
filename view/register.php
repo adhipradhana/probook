@@ -41,7 +41,7 @@
 					</tr>
 				</form>
 			</table>
-			<span id="already"><a href="#">Already have an account?</a></span>
+			<span id="already"><a href="http://localhost:8080/view/login.php">Already have an account?</a></span>
 			<div class="button-register">
 				<button type="button" id="submit" onclick="register()">REGISTER</button>
 			</div>

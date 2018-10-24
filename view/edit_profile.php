@@ -13,9 +13,9 @@
 		</span>
 	</div>
 	<div class="main-section">
-		<a href="#"><div class="browse"><strong class="font2em">B</strong>rowse</div></a>
+		<a href="http://localhost:8080/view/search.php"><div class="browse"><strong class="font2em">B</strong>rowse</div></a>
 		<a href="#"><div class="history"><strong class="font2em">H</strong>istory</div></a> 
-		<a href="#"><div class="profile"><strong class="font2em">P</strong>rofile</div></a>
+		<a href="http://localhost:8080/view/profile.php"><div class="profile"><strong class="font2em">P</strong>rofile</div></a>
 	</div>
 	<div id="edit-profile">Edit Profile</div>
 	 

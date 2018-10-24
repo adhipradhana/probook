@@ -33,6 +33,7 @@ function loadUserData() {
 
 				profilePicture.style.background = 'url(\"' + response["profile_pic"] + '\")';
 				profilePicture.style.backgroundSize = "cover";
+				profilePicture.style.backgroundPosition = "center";
 
 			} else {
 				window.location.href = "http://localhost:8080/view/login.php";
