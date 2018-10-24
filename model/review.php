@@ -22,6 +22,24 @@ class Review {
 	     }
     }
 
+    public static function getReviewByBookId($id) {
+        try {
+            $conn = Database::establishConnection();
+            if ($conn != NULL) {
+                $stmt = $conn -> prepare('SELECT users.username, reviews.id, reviews.message, reviews.rating, users.profile_pic FROM reviews JOIN users ON reviews.user_id = users.id JOIN books ON reviews.book_id = books.id WHERE books.id = ?');
+                $stmt -> execute([$id]);
+                $review = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                $stmt = NULL;
+                $conn = NULL;
+            }
+
+            return $review;
+         } catch (PDOException $e) {
+            return NULL;
+         }
+    }
+
     public static function createReview($data) {
     	try {
 	    	$conn = Database::establishConnection();
@@ -29,7 +47,7 @@ class Review {
 	    		$date = new DateTime();
 				$date->format('Y-m-d H:i:s');
 				$stmt = $conn -> prepare('INSERT INTO reviews(books_id, user_id, message, rating, timestamps) VALUES(?,?,?,?,?)');
-		        $stmt -> execute([$data["books_id"], $data["user_id"], $data["message"], $data["rating"], $date);
+		        $stmt -> execute([$data["books_id"], $data["user_id"], $data["message"], $data["rating"], $date]);
 		        
 		        $stmt = $conn -> prepare('SELECT * FROM reviews WHERE id = LAST_INSERT_ID()');
 		        $stmt -> execute();
@@ -53,7 +71,7 @@ class Review {
 				$date->format('Y-m-d H:i:s');
     			$stmt = $conn -> prepare('UPDATE reviews SET books_id = ?, user_id = ?, message = ?, rating = ?, timestamps = ? WHERE id = ?');
 		        $stmt -> execute([$data["books_id"], $data["user_id"], $data["message"], 
-		        	$data["rating"], $date);
+		        	$data["rating"], $date]);
 
 		        $stmt = NULL;
 	            $conn = NULL;
