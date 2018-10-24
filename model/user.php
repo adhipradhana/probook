@@ -94,8 +94,8 @@ class User  {
     	try {
 	    	$conn = Database::establishConnection();
 	    	if ($conn != NULL) {
-				$stmt = $conn -> prepare('INSERT INTO users(name, username, password, email, address, phone_num) VALUES(?,?,?,?,?,?)');
-		        $stmt -> execute([$data["name"], $data["username"], $data["password"], $data["email"], $data["address"], $data["phone_num"]]);
+				$stmt = $conn -> prepare('INSERT INTO users(name, username, password, email, address, phone_num, profile_pic) VALUES(?,?,?,?,?,?,?)');
+		        $stmt -> execute([$data["name"], $data["username"], $data["password"], $data["email"], $data["address"], $data["phone_num"], $data["profile_pic"]]);
 		        
 		        $stmt = $conn -> prepare('SELECT * FROM users WHERE id = LAST_INSERT_ID()');
 		        $stmt -> execute();
@@ -107,7 +107,7 @@ class User  {
 
     		return $user;
 		} catch (PDOException $e) {
-			return NULL;
+			return $e;
 		}  	
     }
 
