@@ -2,11 +2,11 @@ function loadUserData() {
 	var id = getCookie("id");
 
 	if (!id) {
-		window.location.href = "http://localhost:8080/view/login.php";
+		window.location.href = "/view/login.php";
 	}
 
 	xhttp = new XMLHttpRequest();
-	xhttp.open("GET", "../controller/user_id.php", true);
+	xhttp.open("GET", "/controller/user_id.php", true);
 	xhttp.send();
 
 	xhttp.onreadystatechange = function() {
@@ -30,7 +30,7 @@ function loadUserData() {
 				profilePicture.style.backgroundSize = "cover";
 				profilePicture.style.backgroundPosition = "center";
 			} else {
-				window.location.href = "http://localhost:8080/view/login.php";
+				window.location.href = "/view/login.php";
 			}
 		}
 	}
@@ -107,14 +107,14 @@ function saveChange() {
 		var requestBody = JSON.stringify(body);
 		var xhttp = new XMLHttpRequest();
 
-		xhttp.open("POST","../controller/edit_profile.php", true);
+		xhttp.open("POST","/controller/edit_profile.php", true);
 		xhttp.setRequestHeader("Content-type", "application/json");
 		xhttp.send(requestBody);
 
 		xhttp.onreadystatechange = function() {
 			if (this.readyState === 4) {
 				if (this.status === 200) {
-					window.location.href = "http://localhost:8080/view/profile.php";
+					window.location.href = "/view/profile.php";
 				} else {
 					alert("Can't change profile");
 				}

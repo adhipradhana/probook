@@ -22,7 +22,7 @@ function register(){
 			var requestBody = JSON.stringify(body);
 			var xhttp = new XMLHttpRequest();
 
-			xhttp.open("POST","../controller/register.php", true);
+			xhttp.open("POST","/controller/register.php", true);
 			xhttp.setRequestHeader("Content-type", "application/json");
 			xhttp.send(requestBody);
 
@@ -112,7 +112,7 @@ function checkEmailExist(email, callback) {
 	var requestBody = JSON.stringify(body);
 	var xhttp = new XMLHttpRequest();
 
-	xhttp.open("POST","../controller/check_email.php", true);
+	xhttp.open("POST","/controller/check_email.php", true);
 	xhttp.setRequestHeader("Content-type", "application/json");
 	xhttp.send(requestBody);
 
@@ -164,7 +164,7 @@ function checkUsernameExist(username, callback) {
 	var requestBody = JSON.stringify(body);
 	var xhttp = new XMLHttpRequest();
 
-	xhttp.open("POST","../controller/check_username.php", true);
+	xhttp.open("POST","/controller/check_username.php", true);
 	xhttp.setRequestHeader("Content-type", "application/json");
 	xhttp.send(requestBody);
 

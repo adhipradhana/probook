@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Book Detail</title>
-    <link rel="stylesheet" type="text/css" href="CSS/detail.css">
+    <link rel="stylesheet" type="text/css" href="/view/css/detail.css">
     <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
 </head>
 <body onload="loadDetailData()">
