@@ -50,15 +50,12 @@ function loadBookData(book_id){
 				
 				title.textContent = result["title"];
 				author.textContent = result["author"];
-				// bookPic.textContent = result["pic"];
 
 				bookPic.style.background = 'url(\"' + result["pic"] + '\")';
 				bookPic.style.backgroundSize = "cover";
 				bookPic.style.backgroundPosition = "center";
 			} else {
-				// alert("there is no book with id "+ result["id"]);
 				window.location.href = "/view/history.php";
-				// alert("CAN'T TAKE BOOK DATA");
 			}
 		}
 	}

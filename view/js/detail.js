@@ -42,7 +42,7 @@ function loadBookData(book_id) {
             if (this.status === 200) {
                 //parse to json
                 var response = JSON.parse(this.responseText);
-                // //get element
+                //get element
                 var title = document.getElementById("book-title");
                 var author = document.getElementById("book-author");
                 var synopsis = document.getElementById("book-desc");
