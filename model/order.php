@@ -1,5 +1,7 @@
 <?php  
 
+require_once('../model/database.php');
+
 class Order {
     
     public static function getOrderByID($id) {
