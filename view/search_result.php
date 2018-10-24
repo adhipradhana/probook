@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html>
 <head>
-	<title>Search</title>
-	<link rel="stylesheet" type="text/css" href="/view/css/search.css">
+	<title>Search Result</title>
+	<link rel="stylesheet" href="/view/css/search_result.css">
 	<link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
 </head>
 <body>
@@ -17,12 +16,8 @@
 		<a href="#"><div class="history"><strong class="font2em">H</strong>istory</div></a> 
 		<a href="#"><div class="profile"><strong class="font2em">P</strong>rofile</div></a>
 	</div>
-	<div class="container">
-		<span id="search-book">Search Book</span>
-		<div>
-			<input type="text" id="search-box" placeholder="Input search terms...."></input>
-		</div>
-		<button id="submit" type="submit">Search</button>
+	<div class="search-result-container">
+		<span id="search-result">Search Result</span>
+		<span id="search-number">Found <u>2</u> result(s)</span>
 	</div>
 </body>
-</html>

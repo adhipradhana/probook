@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Register</title>
-	<link rel="stylesheet" type="text/css" href="css/register.css">
+	<link rel="stylesheet" type="text/css" href="/view/css/register.css">
 	<link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
 </head>
 <body>
@@ -47,6 +47,6 @@
 			</div>
 		</div>
 	</div>
-<script type="text/javascript" src="js/register.js"></script>
+<script type="text/javascript" src="/view/js/register.js"></script>
 </body>
 </html>

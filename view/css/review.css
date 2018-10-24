@@ -129,7 +129,7 @@ body{
 .book-pic{
 	width: 200px;
 	height: 200px;
-	background-image: url(../asset/tayo.png);
+	background-image: url(/view/asset/tayo.png);
 	background-size: cover;
 	border : 1.5px solid black;
 	margin: 80px 147px 0 0;  
@@ -154,19 +154,19 @@ body{
 	direction: rtl;
 }
 .review img:hover{
-	content: url(../asset/full_star.png);
+	content: url(/view/asset/full_star.png);
 }
 .star1:hover ~ img{
-	content: url(../asset/full_star.png);
+	content: url(/view/asset/full_star.png);
 }
 .star2:hover ~ img{
-	content: url(../asset/full_star.png);
+	content: url(/view/asset/full_star.png);
 }
 .star3:hover ~ img{
-	content: url(../asset/full_star.png);
+	content: url(/view/asset/full_star.png);
 }
 .star4:hover ~ img{
-	content: url(../asset/full_star.png);
+	content: url(/view/asset/full_star.png);
 }
  
 .img-star{

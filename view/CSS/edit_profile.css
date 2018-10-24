@@ -67,7 +67,7 @@ body{
 	border: 2px solid black;
 	margin-left: 60px;
 	float: left;
-	background: url("../asset/tayo.png");
+	background: url("/view/asset/tayo.png");
 	background-size: cover;
 }
 .main-section{

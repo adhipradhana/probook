@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Profile</title>
-	<link rel="stylesheet" type="text/css" href="css/profile.css">
+	<link rel="stylesheet" type="text/css" href="/view/css/profile.css">
 	<link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
 </head>
 <body onload="loadUserData()">
@@ -18,7 +18,7 @@
 		<a href="#"><div class="profile"><strong class="font2em">P</strong>rofile</div></a>
 	</div>
 	<div class="profile-pic">
-		<a href="http://localhost:8080/view/edit_profile.php"><span class="edit-pic">EDIT ICON</span></a>
+		<a href="/view/edit_profile.php"><span class="edit-pic">EDIT ICON</span></a>
 		<div class="pic-border"></div>
 		<div class="name"> Tayo the little bus </div>
 	</div>
@@ -43,6 +43,6 @@
 			</tr>
 		</table>
 	</div>
-	<script type="text/javascript" src="js/profile.js"></script>
+	<script type="text/javascript" src="/view/js/profile.js"></script>
 </body>
 </html>
