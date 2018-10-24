@@ -167,6 +167,7 @@ p {
 .book-nontext-desc {
     width: 25%;
     margin-top: 10px;
+    margin-left: auto;
 }
 
 .book-order {
