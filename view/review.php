@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Review</title>
-	<link rel="stylesheet" type="text/css" href="css/review.css">
+	<link rel="stylesheet" type="text/css" href="/view/css/review.css">
 	<link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
 </head>
 <body onload="loadUserData()">
@@ -43,6 +43,6 @@
 	<a href="http://localhost:8080/view/history.php"><button type="submit" id="back">Back</button></a>
 	<button type="submit" id="submit" onclick="makeReview()">Submit</button>
 
-	<script type="text/javascript" src="js/review.js"></script>
+	<script type="text/javascript" src="/view/js/review.js"></script>
 </body>
 </html>

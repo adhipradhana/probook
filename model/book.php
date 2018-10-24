@@ -1,10 +1,9 @@
 <?php  
 
-require_once('../model/database.php');
+require_once('database.php');
 
 class Book {
-
-    function static getBookById($id) {
+    static function getBookById($id) {
         try {
             $conn = Database::establishConnection();
 
@@ -23,7 +22,7 @@ class Book {
         }
     }
 
-    function static getBooksByTitle($title) {
+    static function getBooksByTitle($title) {
         try {
             $conn = Database::establishConnection();
 
@@ -42,7 +41,7 @@ class Book {
         }
     }
 
-    function static createBook($data) {
+    static function createBook($data) {
         try {
             $conn = Database::establishConnection();
 
@@ -62,7 +61,7 @@ class Book {
         }
     }
 
-    function static deleteBook($id) {
+    static function deleteBook($id) {
         try {
             $conn = Database::establishConnection();
 
@@ -96,9 +95,6 @@ class Book {
     //      return FALSE;
     //  }
     // }
-
-
-
 }
 
 

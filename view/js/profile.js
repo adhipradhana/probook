@@ -2,11 +2,11 @@ function loadUserData() {
 	var id = getCookie("id");
 
 	if (!id) {
-		window.location.href = "http://localhost:8080/view/login.php";
+		window.location.href = "/view/login.php";
 	}
 
 	xhttp = new XMLHttpRequest();
-	xhttp.open("GET", "../controller/user_id.php", true);
+	xhttp.open("GET", "/controller/user_id.php", true);
 	xhttp.send();
 
 	xhttp.onreadystatechange = function() {
@@ -36,7 +36,7 @@ function loadUserData() {
 				profilePicture.style.backgroundPosition = "center";
 
 			} else {
-				window.location.href = "http://localhost:8080/view/login.php";
+				window.location.href = "/view/login.php";
 			}
 		}
 	}

@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Log In</title>
-	<link rel="stylesheet" type="text/css" href="css/register.css">
+	<link rel="stylesheet" type="text/css" href="/view/css/register.css">
 </head>
 <body>
 	<div class="background">
@@ -26,6 +26,6 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="js/login.js"></script>
+	<script type="text/javascript" src="/view/js/login.js"></script>
 </body>
 </html>

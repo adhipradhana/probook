@@ -53,6 +53,24 @@ class Review {
     		return FALSE;	
     	}
     }
+    
+    public static function getReviewByBookId($id) {
+        try {
+            $conn = Database::establishConnection();
+            if ($conn != NULL) {
+                $stmt = $conn -> prepare('SELECT users.username, reviews.id, reviews.message, reviews.rating, users.profile_pic FROM reviews JOIN users ON reviews.user_id = users.id JOIN books ON reviews.book_id = books.id WHERE books.id = ?');
+                $stmt -> execute([$id]);
+                $review = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                $stmt = NULL;
+                $conn = NULL;
+            }
+
+            return $review;
+         } catch (PDOException $e) {
+            return NULL;
+         }
+    }
 
     public static function createReview($data) {
     	try {

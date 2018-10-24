@@ -10,14 +10,14 @@ function logIn() {
 
 	var xhttp = new XMLHttpRequest();
 
-	xhttp.open("POST", "../controller/login.php", true);
+	xhttp.open("POST", "/controller/login.php", true);
 	xhttp.setRequestHeader("Content-type", "application/json");
 	xhttp.send(requestBody);
 
 	xhttp.onreadystatechange = function() {
 		if (this.readyState === 4) {
 			if (this.status === 200) {
-				window.location.href = "http://localhost:8080/view/profile.php";
+				window.location.href = "/view/profile.php";
 			} else {
 				alert("User not found");
 			}
