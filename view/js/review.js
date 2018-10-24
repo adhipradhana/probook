@@ -3,6 +3,8 @@ var star = document.querySelectorAll(".img-star");
 var rating;
 var bookID = getParameterByName("bookid");
 
+console.log(rating);
+
 function loadUserData() {
 	var id = getCookie("id");
 
@@ -85,30 +87,36 @@ function makeReview(){
 
 	checkValid(bookID, userID, function(valid){
 		if(valid){
-			var body = {
-				book_id : bookID,
-				message : comment,
-				rating : rating
-			};
-			// console.log(body);
-			var requestBody = JSON.stringify(body);
-			var xhttp = new XMLHttpRequest();
+			validateRating(rating, function(valid){
+				if(valid){
+					var body = {
+						book_id : bookID,
+						message : comment,
+						rating : rating
+					};
+					// console.log(body);
+					var requestBody = JSON.stringify(body);
+					var xhttp = new XMLHttpRequest();
 
-			xhttp.open("POST","../controller/review.php", true);
-			xhttp.setRequestHeader("Content-type", "application/json");
-			xhttp.send(requestBody);
+					xhttp.open("POST","../controller/review.php", true);
+					xhttp.setRequestHeader("Content-type", "application/json");
+					xhttp.send(requestBody);
 
-			xhttp.onreadystatechange = function(){
-				if(this.readyState === 4){
-					console.log(this.responseText);
+					xhttp.onreadystatechange = function(){
+						if(this.readyState === 4){
+							console.log(this.responseText);
 
-					if(this.status === 200){
-						alert("berhasil");
-					} else{
-						alert("NOT OK");
+							if(this.status === 200){
+								alert("berhasil");
+							} else{
+								alert("NOT OK");
+							}
+						}
 					}
+				}else{
+					alert("NOT OK");
 				}
-			}
+			});
 		} else{
 			alert("NOT VALID");
 		}
@@ -165,6 +173,10 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
-function validateRating(rating){
-
+function validateRating(rating, callback){
+	if(rating == null){
+		callback(false);
+	}else{
+		callback(true);
+	}
 }
