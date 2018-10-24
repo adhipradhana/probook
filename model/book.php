@@ -1,5 +1,7 @@
 <?php  
 
+require_once('../model/database.php');
+
 class Book {
     public $id;
     public $title;
@@ -7,6 +9,102 @@ class Book {
     public $author;
     public $pic;
     public $avg_rating;
+
+    function static getBookById($id) {
+        try {
+            $conn = Database::establishConnection();
+
+            if ($conn != NULL) {
+                $statement = $conn->prepare('SELECT * FROM books WHERE id = ?');
+                $statement->execute([$id]);
+                $book = $statement->fetch(PDO::FETCH_ASSOC);
+
+                $conn = NULL;
+                $statement = NULL;
+            }
+
+            return $book;
+        } catch (PDOException $e) {
+            return NULL;
+        }
+    }
+
+    function static getBooksByTitle($title) {
+        try {
+            $conn = Database::establishConnection();
+
+            if ($conn != NULL) {
+                $statement = $conn->prepare('SELECT * FROM books WHERE LOWER(books.title) LIKE \'%?%\'');
+                $statement->execute([$id]);
+                $books = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+                $conn = NULL;
+                $statement = NULL;
+            }
+
+            return $books;
+        } catch (PDOException $e) {
+            return NULL;
+        }
+    }
+
+    function static createBook($data) {
+        try {
+            $conn = Database::establishConnection();
+
+            if ($conn != NULL) {
+                $statement = $conn->prepare('INSERT INTO books(title, synopsis, author, avg_rating) VALUES(?,?,?,?,?)');
+                $statement->execute([$data["title"], $data["synopsis"], $data["author"], 0]);
+
+                $conn = NULL;
+                $statement = NULL;
+
+                return TRUE;
+            }
+
+            return FALSE;
+        } catch (PDOException $e) {
+            return FALSE;
+        }
+    }
+
+    function static deleteBook($id) {
+        try {
+            $conn = Database::establishConnection();
+
+            if ($conn != NULL) {
+                $statement = $conn->prepare('DELETE FROM books WHERE id = ?');
+                $statement->execute([$id]);
+
+                $conn = NULL;
+                $statement = NULL;
+
+                return TRUE;
+            }
+
+            return FALSE;
+        } catch (PDOException $e) {
+            return FALSE;
+        }
+    }
+
+    // TODO : update book rating
+    // function static updateBookRating($rating) {
+    //  try {
+    //      $conn = Database::establishConnection();
+
+    //      if ($conn != NULL) {
+    //          $statement = $conn->prepare('UPDATE SET rating ')
+    //      }
+
+    //      return FALSE;
+    //  } catch (PDOException $e) {
+    //      return FALSE;
+    //  }
+    // }
+
+
+
 }
 
 
