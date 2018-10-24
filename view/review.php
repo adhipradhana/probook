@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="/view/css/review.css">
 	<link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
 </head>
-<body onload="initialLoad()">
+<body onload="loadUserData()">
 	<div class="header">
 		<span id="pro">Pro-</span><span id="book">Book</span> 
 		<span class="header2"> 
@@ -13,9 +13,9 @@
 		</span>
 	</div>
 	<div class="main-section">
-		<a href="#"><div class="browse"><strong class="font2em">B</strong>rowse</div></a>
+		<a href="http://localhost:8080/view/search.php"><div class="browse"><strong class="font2em">B</strong>rowse</div></a>
 		<a href="#"><div class="history"><strong class="font2em">H</strong>istory</div></a> 
-		<a href="#"><div class="profile"><strong class="font2em">P</strong>rofile</div></a>
+		<a href="http://localhost:8080/view/profile.php"><div class="profile"><strong class="font2em">P</strong>rofile</div></a>
 	</div>
 	<div class="book-section">
 		<div class="title-book">
@@ -37,11 +37,11 @@
 	<div class="comment-section">
 		<span id="add-comment">Add Comment</span>
 		<div class="comment">
-			<textarea rows="5"></textarea>
+			<textarea rows="5" id="user-comment"></textarea>
 		</div>
 	</div>
-	<button type="submit" id="back">Back</button>
-	<button type="submit" id="submit">Submit</button>
+	<a href="http://localhost:8080/view/history.php"><button type="submit" id="back">Back</button></a>
+	<button type="submit" id="submit" onclick="makeReview()">Submit</button>
 
 	<script type="text/javascript" src="/view/js/review.js"></script>
 </body>
