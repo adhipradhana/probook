@@ -147,8 +147,8 @@ body{
 	padding-bottom: 5px;
 }
 .search-result-container{
-	margin-top: 50px;
-	margin-bottom: 200px;
+	margin-top: 80px;
+	margin-bottom: 250px;
 }
 .detail-button{
 	border: 0px;
@@ -162,9 +162,9 @@ body{
 	cursor: pointer;
 }
 #search-result{
+	font-size : 4em;
 	color : rgb(235,79,8);
-	margin-left: 94px;
-	font-size: 3em;
+	margin-left: 80px;
 	float : left;
 }
 #search-number{
