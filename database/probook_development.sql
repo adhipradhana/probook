@@ -60,9 +60,9 @@ CREATE TABLE `reviews` (
   `id` int(11) NOT NULL,
   `book_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `timestamps` datetime NOT NULL,
+  `timestamps` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `message` text NOT NULL,
-  `rating` int(11) NOT NULL
+  `rating` decimal(5, 1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
