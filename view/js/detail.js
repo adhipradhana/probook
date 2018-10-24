@@ -10,6 +10,11 @@ function loadDetailData() {
         //Param nya ga bener
     }
 
+    loadBookData(user_id, book_id);
+    loadReviewData(book_id);
+}
+
+function loadBookData(user_id, book_id) {
     xhttp = new XMLHttpRequest();
     uriPath = "/controller/book_id.php?id=" + book_id;
     xhttp.open("GET", uriPath, true);
@@ -32,6 +37,22 @@ function loadDetailData() {
                 image.src = response["pic"];
 
                 changeRating(parseFloat(response["avg_rating"]));
+            }
+        }
+    }
+}
+
+function loadReviewData(book_id) {
+    xhttp = new XMLHttpRequest();
+    uriPath = "/controller/book_reviews.php?id=" + book_id;
+    xhttp.open("GET", uriPath, true);
+    xhttp.send();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState === 4) {
+            if (this.status === 200) {
+                var response = JSON.parse(this.responseText);
+                response.forEach(displayReview);
             }
         }
     }
@@ -82,23 +103,63 @@ function closeNotification() {
     document.getElementById('notification-background').style.display = "none";
 }
 
-function changeRating(avg_rating) {
-    var book_rating = document.getElementById("book-ratings-num");
+function changeRating(avgRating) {
+    var bookRating = document.getElementById("book-ratings-num");
 
-    book_rating.textContent = avg_rating.toFixed(1) + '/5.0';
+    bookRating.textContent = avgRating.toFixed(1) + '/5.0';
 
     for (var i = 1; i <= 5; i++) {
         var star = document.getElementById("star-" + i);
-        if (avg_rating >= i) {
+        if (avgRating >= i) {
             star.src = 'asset/full_star.png';
         }
-        else if ((avg_rating + 0.5) >= i) {
+        else if ((avgRating + 0.5) >= i) {
             star.src = 'asset/half_star.png';
         }  
         else {
             star.src = 'asset/empty_star.png';
         }
     }
+}
+
+function displayReview(reviewItem) {
+    var reviewUnit = document.createElement("div");
+    var reviewPic = document.createElement("img");
+    var reviewDetail = document.createElement("div");
+    var reviewName = document.createElement("h3");
+    var reviewDesc = document.createElement("p");
+    var reviewRating = document.createElement("div");
+    var reviewStar = document.createElement("img");
+    var ratings = document.createElement("p");
+
+    reviewUnit.className = 'review-unit';
+    reviewPic.className = 'review-pic';
+    reviewDetail.className = 'review-detail';
+    reviewName.className = 'review-name';
+    reviewDesc.className = 'review-desc';
+    reviewRating.className = 'review-rating';
+    reviewStar.className = 'review-star';
+    ratings.className = 'ratings';
+
+    reviewPic.src = reviewItem["profile_pic"];
+    reviewPic.style.height = '150px';
+    reviewPic.style.width = '150px';
+    reviewName.textContent = '@' + reviewItem["username"];
+    reviewDesc.textContent = reviewItem["message"];
+    reviewStar.src = 'asset/full_star.png';
+    ratings.textContent = parseFloat(reviewItem["rating"]).toFixed(1) + '/5.0';
+
+    reviewDetail.appendChild(reviewName);
+    reviewDetail.appendChild(reviewDesc);
+    reviewRating.appendChild(reviewStar);
+    reviewRating.appendChild(ratings);
+    reviewUnit.appendChild(reviewPic);
+    reviewUnit.appendChild(reviewDetail);
+    reviewUnit.appendChild(reviewRating);
+
+    document.getElementById('book-reviews-list').appendChild(reviewUnit);
+
+
 }
 
 function getUrlParam(parameter, defaultvalue) {

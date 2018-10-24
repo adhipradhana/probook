@@ -57,7 +57,7 @@
             </div>
             <button type='button' id='order-submit' onclick="processOrder()">Order</button> 
         </div>
-        <div class="book-reviews">
+        <div id='book-reviews-list' class="book-reviews">
             <h2>Reviews</h2>
             <div class='review-unit'>
                 <img class='review-pic' src='asset/tayo.png'>
