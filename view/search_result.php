@@ -13,12 +13,12 @@
 	</div>
 	<div class="main-section">
 		<a href="/view/search.php"><div class="browse"><strong class="font2em">B</strong>rowse</div></a>
-		<a href="#"><div class="history"><strong class="font2em">H</strong>istory</div></a> 
+		<a href="#/view/history.php"><div class="history"><strong class="font2em">H</strong>istory</div></a> 
 		<a href="/view/profile.php"><div class="profile"><strong class="font2em">P</strong>rofile</div></a>
 	</div>
 	<div class="search-result-container">
 		<div id="search-result">Search Result</div>
-		<div id="search-number">Found <u id="result-number">2</u> result(s)</div>
+		<div id="search-number">Found <u id="result-number">0</u> result(s)</div>
 	</div>
 	<div id="book-placeholder">
 	</div>

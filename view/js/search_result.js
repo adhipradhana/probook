@@ -56,9 +56,7 @@ function searchBooks() {
     			booksList.forEach(function(book) {
     				createBookContainer(book);
     			});
-    		} else {
-    			alert("Failed to fetch request");
-    		}
+    		} 
     	}
     }
 }
@@ -86,13 +84,18 @@ function createBookContainer(book) {
 	bookTitle.textContent = book["title"];
 	bookSubtitle.textContent = book["author"] + ' - ' + parseFloat(book["avg_rating"]).toFixed(1) + '/5.0';
 	bookSynopsis.textContent = book["synopsis"];
+	detailButton.textContent = "Detail";
+	detailButton.setAttribute("data-bookid", book["id"]);
+	detailButton.addEventListener("click", function() {
+		window.location.href = "/view/detail.php?id=" + this.getAttribute("data-bookid");
+	});
 
 	bookContainer.appendChild(bookImage);
 	bookContainer.appendChild(bookDetail);
 	bookDetail.appendChild(bookTitle);
 	bookDetail.appendChild(bookSubtitle);
 	bookDetail.appendChild(bookSynopsis);
-	bookDetail.appendChild(bookSynopsis);
+	bookDetail.appendChild(detailButton);
 
 	document.getElementById("book-placeholder").appendChild(bookContainer);
 }
