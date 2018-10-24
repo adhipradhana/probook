@@ -3,14 +3,7 @@
 require_once('../model/database.php');
 
 class Book {
-    public $id;
-    public $title;
-    public $synopsis;
-    public $author;
-    public $pic;
-    public $avg_rating;
-
-    function static getBookById($id) {
+    static function getBookById($id) {
         try {
             $conn = Database::establishConnection();
 
@@ -29,7 +22,7 @@ class Book {
         }
     }
 
-    function static getBooksByTitle($title) {
+    static function getBooksByTitle($title) {
         try {
             $conn = Database::establishConnection();
 
@@ -48,7 +41,7 @@ class Book {
         }
     }
 
-    function static createBook($data) {
+    static function createBook($data) {
         try {
             $conn = Database::establishConnection();
 
@@ -68,7 +61,7 @@ class Book {
         }
     }
 
-    function static deleteBook($id) {
+    static function deleteBook($id) {
         try {
             $conn = Database::establishConnection();
 
