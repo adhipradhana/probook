@@ -17,11 +17,11 @@
 					</tr>
 					<tr>
 						<td class="align-right">Username</td>
-						<td><input type="text" id="username" onkeyup="validateUsername()"></td>
+						<td><input type="text" id="username" onkeyup="validateUsername()"> <img src="asset/success.png" id="validate-username"></td>
 					</tr>
 					<tr>
 						<td class="align-right">Email</td>
-						<td><input type="text" id="email" onkeyup="validateEmail()"></td>
+						<td><input type="text" id="email" onkeyup="validateEmail()"> <img src="asset/failed.png" id="validate-email"></td>
 					</tr>
 					<tr>
 						<td class="align-right">Password</td>
@@ -33,7 +33,7 @@
 					</tr>
 					<tr>
 						<td class="align-right">Address</td>
-						<td><textarea id="address" rows="2"></textarea></td>
+						<td><textarea id="address" rows="3"></textarea></td>
 					</tr>
 					<tr>
 						<td class="align-right">Phone Number</td>
@@ -42,6 +42,8 @@
 				</form>
 			</table>
 			<span id="already"><a href="http://localhost:8080/view/login.php">Already have an account?</a></span>
+			
+			
 			<div class="button-register">
 				<button type="button" id="submit" onclick="register()">REGISTER</button>
 			</div>

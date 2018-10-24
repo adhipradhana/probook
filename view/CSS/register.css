@@ -32,8 +32,7 @@ h1{
 .container{
 	margin : 10px 10px 10px 10px;
 	background-image: url("/view/asset/download.png");
-	/*background-position: center;*/
-	/*background-size: cover;*/
+	opacity: 0.98;
 	overflow-x: auto;
 }
 
@@ -60,4 +59,60 @@ h1{
 #already{
 	font-size: 15px;
 	margin: 5px 10px 10px 15px;
+}
+#name{
+	width: 85%;
+	font-size: 15px;
+	padding: 2px 5px 2px 5px;
+	margin-top: 5px;
+}
+#username{
+	width: 70%;
+	font-size: 15px;
+	padding: 2px 5px 2px 5px;
+	margin-top: 5px;
+}
+#email{
+	width: 70%;
+	font-size: 15px;
+	padding: 2px 5px 2px 5px;
+	margin-top: 5px;
+}
+#password{
+	width: 85%;
+	font-size: 15px;
+	padding: 2px 5px 2px 5px;
+	margin-top: 5px;
+}
+#confirm_password{
+	width: 85%;
+	font-size: 15px;
+	padding: 2px 5px 2px 5px;
+	margin-top: 5px;
+}
+#address{
+	width: 86%;
+	font-size: 15px;
+	padding: 2px 5px 2px 5px;
+	margin-top: 5px;
+}
+#phone_number{
+	width: 85%;
+	font-size: 15px;
+	padding: 2px 5px 2px 5px;
+	margin-top: 5px;
+}
+#validate-username{
+	height: 30px;
+	width: auto;
+	/*margin-top: 5px;*/
+	vertical-align: middle;
+	display: none;
+}
+#validate-email{
+	height: 30px;
+	width: auto;
+	/*margin-top: 5px;*/
+	vertical-align: middle;
+	display: none;
 }

@@ -131,29 +131,37 @@ function checkEmailExist(email, callback) {
 function validateEmail(){
 	var email = document.getElementById("email").value;
 	var emailField = document.getElementById("email");
-
+	var validateImage = document.getElementById("validate-email");
 	//TODO: bener -> cek DB
 	if (isEmailValid(email)){
 		checkEmailExist(email, function(exist) {
 			if (!exist) {
 				emailField.style.background = "#41f471";
+				validateImage.style.display = "inline";
+				validateImage.setAttribute("src", "asset/success.png")
 			} else {
 				emailField.style.background = "#f44262";
+				validateImage.style.display = "inline";
+				validateImage.setAttribute("src", "asset/failed.png")
 			}
 		});
 	} else {
 		emailField.style.background = "#f44262";
+		validateImage.style.display = "inline";
+		validateImage.setAttribute("src", "asset/failed.png")
 	}
 
 	if(email.length === 0){
 		emailField.style.background = "#FFFFFF";
+		validateImage.style.display = "none";
+		validateImage.setAttribute("src", "asset/failed.png")
 	}	
 }
 
 function isUsernameValid(username) {
 	var re = /^[a-zA-Z0-9_]*$/;
 
-	return re.test(username) && username.length <= 20;
+	return re.test(username) && username.length !== 0 && username.length <= 20;
 } 
 
 function checkUsernameExist(username, callback) {
@@ -182,21 +190,30 @@ function checkUsernameExist(username, callback) {
 function validateUsername(){
 	var username = document.getElementById("username").value;
 	var usernameField = document.getElementById("username");
+	var validateImage = document.getElementById("validate-username");
 
 	//TODO: bener -> cek DB
 	if (isUsernameValid(username)) {
 		checkUsernameExist(username, function(exist) {
 			if (!exist) {
 				usernameField.style.background = "#41f471";
+				validateImage.style.display = "inline";
+				validateImage.setAttribute("src", "asset/success.png")
 			} else {
 				usernameField.style.background = "#f44262";
+				validateImage.style.display = "inline";
+				validateImage.setAttribute("src", "asset/failed.png")
 			}
 		});
 	} else {
 		usernameField.style.background = "#f44262";
+		validateImage.style.display = "inline";
+		validateImage.setAttribute("src", "asset/failed.png")
 	}
 
-	if (username.length === 0){
+	if(username.length === 0){
 		usernameField.style.background = "#FFFFFF";
+		validateImage.style.display = "none";
+		validateImage.setAttribute("src", "asset/failed.png")
 	}	
 }
