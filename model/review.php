@@ -31,7 +31,6 @@ class Review {
 
     			if ($stmt->rowCount() > 0) {
     				$stmt = NULL;
-    				// $conn = NULL;
     				$stmt2 = $conn -> prepare('SELECT id FROM reviews WHERE book_id = ? AND user_id = ?');
     				$stmt2 -> execute([$data["book_id"], $data["user_id"]]);
     				if($stmt2->rowCount() === 0){
