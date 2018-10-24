@@ -12,7 +12,6 @@ $review = Review::createReview($input);
 
 if(empty($review)){
 	http_response_code(401);
-	// echo json_encode($input);
 }else{
 	header("application/json");
 	http_response_code(200);

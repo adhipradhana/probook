@@ -29,7 +29,7 @@ function register(){
 			xhttp.onreadystatechange = function() {
 				if (this.readyState === 4) {
 					if (this.status === 200) {
-						window.location.href = "http://localhost:8080/view/login.php";
+						window.location.href = "/view/login.php";
 					} else {
 						alert("NOT OK");
 					}

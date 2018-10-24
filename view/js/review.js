@@ -3,13 +3,11 @@ var star = document.querySelectorAll(".img-star");
 var rating;
 var bookID = getParameterByName("bookid");
 
-console.log(rating);
-
 function loadUserData() {
 	var id = getCookie("id");
 
 	if (!id) {
-		window.location.href = "http://localhost:8080/view/login.php";
+		window.location.href = "/view/login.php";
 	}
 
 	xhttp = new XMLHttpRequest();
@@ -27,7 +25,7 @@ function loadUserData() {
 				
 				user.textContent = 'Hi, ' + response["username"];
 			} else {
-				window.location.href = "http://localhost:8080/view/login.php";
+				window.location.href = "/view/login.php";
 			}
 		}
 	}
@@ -60,7 +58,7 @@ function loadBookData(book_id){
 				bookPic.style.backgroundPosition = "center";
 			} else {
 				// alert("there is no book with id "+ result["id"]);
-				window.location.href = "http://localhost:8080/view/history.php";
+				window.location.href = "/view/history.php";
 				// alert("CAN'T TAKE BOOK DATA");
 			}
 		}
@@ -94,7 +92,6 @@ function makeReview(){
 						message : comment,
 						rating : rating
 					};
-					// console.log(body);
 					var requestBody = JSON.stringify(body);
 					var xhttp = new XMLHttpRequest();
 
@@ -104,8 +101,6 @@ function makeReview(){
 
 					xhttp.onreadystatechange = function(){
 						if(this.readyState === 4){
-							console.log(this.responseText);
-
 							if(this.status === 200){
 								alert("berhasil");
 							} else{
