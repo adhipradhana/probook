@@ -11,7 +11,7 @@ function loadDetailData() {
     }
 
     loadUserHeader();
-    loadBookData(user_id, book_id);
+    loadBookData(book_id);
     loadReviewData(book_id);
 }
 
@@ -31,7 +31,7 @@ function loadUserHeader() {
     }
 }
 
-function loadBookData(user_id, book_id) {
+function loadBookData(book_id) {
     xhttp = new XMLHttpRequest();
     uriPath = "/controller/book_id.php?id=" + book_id;
     xhttp.open("GET", uriPath, true);
@@ -42,7 +42,7 @@ function loadBookData(user_id, book_id) {
             if (this.status === 200) {
                 //parse to json
                 var response = JSON.parse(this.responseText);
-                // //get element
+                //get element
                 var title = document.getElementById("book-title");
                 var author = document.getElementById("book-author");
                 var synopsis = document.getElementById("book-desc");
