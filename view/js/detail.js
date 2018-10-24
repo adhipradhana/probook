@@ -10,8 +10,25 @@ function loadDetailData() {
         //Param nya ga bener
     }
 
+    loadUserHeader();
     loadBookData(user_id, book_id);
     loadReviewData(book_id);
+}
+
+function loadUserHeader() {
+    xhttp = new XMLHttpRequest();
+    uriPath = "/controller/user_id.php";
+    xhttp.open("GET", uriPath, true);
+    xhttp.send();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState === 4) {
+            if (this.status === 200) {
+                var response = JSON.parse(this.responseText);
+                document.getElementById("user").textContent = 'Hi, ' + response['username'];
+            }
+        }
+    }
 }
 
 function loadBookData(user_id, book_id) {
